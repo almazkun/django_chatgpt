@@ -1,0 +1,21 @@
+services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8000:80 
+    volumes:
+      - ./.nginx/dev/nginx.conf:/etc/nginx/nginx.conf
+      - ./staticfiles:/var/www/staticfiles
+      - ./mediafiles:/var/www/mediafiles
+
+  web:
+    build: .
+    environment:
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DJANGO_DEBUG=${DJANGO_DEBUG}
+      - DJANGO_ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
+      - DJANGO_CSRF_TRUSTED_ORIGINS=${DJANGO_CSRF_TRUSTED_ORIGINS}
+    entrypoint: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/app

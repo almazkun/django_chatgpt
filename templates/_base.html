@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+    <head>
+        {% block meta %}
+            {% include "includes/meta.html" %}
+        {% endblock meta %}
+        {% block style %}
+            {% include "includes/style.html" %}
+        {% endblock style %}
+    </head>
+    <body class="d-flex flex-column h-100">
+        {% block navigation %}
+            {% include "includes/nav.html" %}
+        {% endblock navigation %}
+        {% block messages %}
+            {% include "includes/messages.html" %}
+        {% endblock messages %}
+        <div class="flex-shrink-0">
+            {% block main_content %}
+            {% endblock main_content %}
+        </div>
+        {% block footer %}
+            {% include "includes/footer.html" %}
+        {% endblock footer %}
+        {% block scripts %}
+            {% include "includes/scripts.html" %}
+        {% endblock scripts %}
+    </body>
+</html>
