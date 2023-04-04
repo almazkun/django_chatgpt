@@ -5,6 +5,8 @@ verify_ssl = true
 
 [packages]
 django = "==4.1.7"
+openai = "==0.27.1"
+django-htmx = "*"
 
 [dev-packages]
 coverage = "*"
@@ -13,4 +15,4 @@ pylint = "*"
 autoflake = "*"
 
 [requires]
-python_version = "3.10"
+python_version = "3.11"

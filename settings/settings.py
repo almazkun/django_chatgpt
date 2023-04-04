@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # local apps
     # 3rd party apps
+    "django_htmx",
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 ROOT_URLCONF = "settings.urls"
@@ -192,3 +194,6 @@ CSRF_TRUSTED_ORIGINS = (
     if os.getenv("DJANGO_CSRF_TRUSTED_ORIGINS")
     else []
 )
+
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
