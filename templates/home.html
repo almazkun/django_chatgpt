@@ -1,20 +1,9 @@
 {% extends "_base.html" %}
 {% block main_content %}
-    <div class="container">
-        <h1>Hello There!</h1>
-        <div id="answers">
-            {% block messages %}
-                {% include "includes/messages.html" %}
-            {% endblock messages %}
-        </div>
-        <div class="d-flex align-items-end" id="message">
-            <div class="d-flex align-items-end">
-                <form action="{% url 'message' %}" method="post">
-                    {% csrf_token %}
-                    <input type="text" name="message" placeholder="Enter your message" required>
-                    <input type="submit" value="Send">
-                </form>
-            </div>
-        </div>
+    <div class="container mt-4">
+        <h1 class="display-5">Django ChatGPT</h1>
+        <p class="lead">Example of OpenAi gpt-3.5-turbo model chat with customizable contex</p>
+        {% include "partial/home.html" %}
     </div>
+</div>
 {% endblock %}

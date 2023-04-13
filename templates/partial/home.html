@@ -1,0 +1,31 @@
+<div id="swap-area">
+    {% for message in conversation %}
+        {% with message.role as role %}
+            <div class="chat-message">
+                <p class=" {% if role == 'system' %}text-muted small {% elif role == 'user' %}text-primary {% elif role == 'assistant' %}text-success {% else %}text-danger {% endif %} ">
+                    {{ message.content }}
+                </p>
+            </div>
+        {% endwith %}
+    {% endfor %}
+    <div class="progress my-2">
+        <div class="indeterminate"></div>
+    </div>
+    <form hx-post="/"
+          hx-target="#swap-area"
+          hx-swap="outerHTML scroll:bottom"
+          hx-indicator=".progress">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.source.errors }}
+        {{ form.source }}
+        <div class="input-group my-5">
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field }}
+                <button class="btn btn-outline-secondary" type="submit"  id="button-send">Send</button>
+                {{ field.help_text }}
+            {% endfor %}
+        </div>
+    </form>
+</div>

@@ -62,3 +62,8 @@ test:
 prod: _prod collectstatic
 
 prod_restart: down_prod prod
+
+install_debug_toolbar:
+	docker compose exec web pip install django-debug-toolbar
+	docker compose stop web
+	docker compose start web

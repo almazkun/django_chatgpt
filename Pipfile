@@ -5,14 +5,19 @@ verify_ssl = true
 
 [packages]
 django = "==4.1.7"
-openai = "==0.27.1"
-django-htmx = "*"
+openai = "==0.27.3"
+PyPDF2 = "*"
+PyCryptodome= "*"
+gradio = "*"
+gpt_index = "==0.4.24"
+django-htmx = "==1.14.0"
 
 [dev-packages]
 coverage = "*"
 flake8 = "*"
 pylint = "*"
 autoflake = "*"
+ipykernel = "*"
 
 [requires]
 python_version = "3.11"
